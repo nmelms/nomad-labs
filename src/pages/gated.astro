@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+// Fetch the Pages collection
+const pages = await getCollection('pages');
+
+// Find the "about" page from the collection
+const aboutPage = pages.find((page: CollectionEntry<'pages'>) => page.data.title.toLowerCase() === 'gated');
+
+// If not found, throw an error or provide a fallback
+if (!aboutPage) {
+  throw new Error('About page not found.');
+}
+---
+
+<Layout>
+  <h1>{aboutPage.data.title}</h1>
+  <img src={aboutPage.data.thumbnail} alt="Featured Image" />
+  <div >{aboutPage.rendered.html}</div>
+</Layout>

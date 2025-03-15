@@ -5,5 +5,5 @@ import clerk from "@clerk/astro";
 export default defineConfig({
   integrations: [clerk()],
   adapter: node({ mode: "standalone" }),
-  output: "server",
+  output: "static",
 });

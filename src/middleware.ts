@@ -1,13 +1,13 @@
-import { clerkMiddleware, createRouteMatcher } from "@clerk/astro/server";
+// import { clerkMiddleware, createRouteMatcher } from "@clerk/astro/server";
 
-const isProtectedRoute = createRouteMatcher(["/gated"]);
+// const isProtectedRoute = createRouteMatcher(["/gated"]);
 
-export const onRequest = clerkMiddleware((auth, context) => {
-  const { userId } = auth();
+// export const onRequest = clerkMiddleware((auth, context) => {
+//   const { userId } = auth();
 
-  if (!userId && isProtectedRoute(context.request)) {
-    // Add custom logic to run before redirecting
+//   if (!userId && isProtectedRoute(context.request)) {
+//     // Add custom logic to run before redirecting
 
-    return Response.redirect(new URL("/sign-in", context.url), 302);
-  }
-});
+//     return Response.redirect(new URL("/sign-in", context.url), 302);
+//   }
+// });
